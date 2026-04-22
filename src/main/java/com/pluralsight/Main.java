@@ -60,6 +60,12 @@ public class Main {
                 case 2:
                     processLookupProductById(product);
                     break;
+                case 3:
+                    processFindProductWithinPriceRange(product);
+                    break;
+                case 5:
+                    System.out.println("Thank you have a nice day!");
+                    return;
             }
 
 
@@ -93,7 +99,7 @@ public class Main {
 
     }
 
-    public static void processFindProductWithinPriceRange(HashMap<Integer, Product> products) {
+    public static HashMap<Integer, Product> processFindProductWithinPriceRange(HashMap<Integer, Product> products) {
         double askMinPrice = Console.askForDouble("What's the minimum price");
         double askMaxPrice = Console.askForDouble("What's the maximum price");
 
@@ -102,7 +108,13 @@ public class Main {
         for(Product p: products.values())
         {
             if (askMaxPrice >= (p.getProductPrice()) && askMinPrice <= (p.getProductPrice())){
-                matchingProduct.get(p);
+                matchingProduct.put(p.getProductId(), p);
+                System.out.printf("Found: [ID: %d] [PRODUCT: %s] [RETAIL PRICE: $%.2f]\n",
+                        p.getProductId(),
+                        p.getProductName(),
+                        p.getProductPrice()
+                );
+
             }
 
         }
@@ -110,8 +122,10 @@ public class Main {
             System.out.printf("No item found within your price range");
         }
         System.out.println("Found " + matchingProduct.size() + (matchingProduct.size() == 1 ? " result." : " results." ));
-
+        return matchingProduct;
     }
+
+
 
 
 }
