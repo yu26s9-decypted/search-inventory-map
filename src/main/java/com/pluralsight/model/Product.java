@@ -35,5 +35,10 @@ public class Product {
         this.productPrice = productPrice;
     }
 
+    @Override
+    public String toString() {
+        return productId + "|" + productName + "|" + productPrice;
+    }
+
 
 }

@@ -13,6 +13,7 @@ public class Main {
     public static void main(String[] arg) {
         HashMap<Integer, Product> product = new HashMap<>();
 
+
         try {
             String fileName = "src/main/java/com/pluralsight/data/product.txt";
             FileReader fileReader = new FileReader(fileName);
@@ -54,7 +55,10 @@ public class Main {
             int userInput = Console.askForInt("Enter your command:", 1, 5);
             switch (userInput){
                 case 1:
-                    System.out.println(product.get(2048).toString());
+                    processListAllProducts(product);
+                    break;
+                case 2:
+                    processLookupProductById(product);
                     break;
             }
 
@@ -64,6 +68,52 @@ public class Main {
 
 
     }
+    public static void processListAllProducts(HashMap<Integer, Product> products){
+        for( Product p : products.values()) {
+            System.out.println(p);
+        }
+
+    }
+
+    public static void processLookupProductById(HashMap<Integer, Product> products) {
+        int getProductId = Console.askForInt("What is the product ID?", 2000, 5000);
+
+        for (Product p : products.values())
+        {
+            if (p.getProductId() == getProductId ){
+                System.out.printf("Found: [ID: %d] [PRODUCT: %s] [RETAIL PRICE: $%.2f]\n",
+                        p.getProductId(),
+                        p.getProductName(),
+                        p.getProductPrice()
+                );
+                return;
+            }
+        }
+        System.out.printf("Cannot find a product with this id. \n");
+
+    }
+
+    public static void processFindProductWithinPriceRange(HashMap<Integer, Product> products) {
+        double askMinPrice = Console.askForDouble("What's the minimum price");
+        double askMaxPrice = Console.askForDouble("What's the maximum price");
+
+        HashMap<Integer, Product> matchingProduct = new HashMap<>();
+
+        for(Product p: products.values())
+        {
+            if (askMaxPrice >= (p.getProductPrice()) && askMinPrice <= (p.getProductPrice())){
+                matchingProduct.get(p);
+            }
+
+        }
+        if(matchingProduct.isEmpty()) {
+            System.out.printf("No item found within your price range");
+        }
+        System.out.println("Found " + matchingProduct.size() + (matchingProduct.size() == 1 ? " result." : " results." ));
+
+    }
+
+
 }
 
 
