@@ -1,0 +1,25 @@
+2041|AMD Ryzen 7 7800X3D Processor|369.99
+2042|Intel Core i7-14700K Processor|409.99
+2043|NVIDIA RTX 4070 Super GPU|599.99
+2044|32GB DDR5 6000MHz RAM Kit|129.99
+2045|1TB NVMe Gen4 SSD|89.99
+2046|2TB NVMe Gen4 SSD|149.99
+2047|B650 ATX Gaming Motherboard|179.99
+2048|Z790 ATX Motherboard|229.99
+2049|750W Modular Power Supply (80+ Gold)|109.99
+2050|850W Modular Power Supply (80+ Gold)|129.99
+2051|ATX Mid Tower Case (Tempered Glass)|89.99
+2052|ARGB Case Fan Kit (3-Pack)|39.99
+2053|240mm Liquid CPU Cooler|99.99
+2054|360mm Liquid CPU Cooler|139.99
+2055|UltraWide 34" 144Hz Curved Monitor|429.99
+2056|27" 1440p 165Hz Gaming Monitor|279.99
+2057|4K 32" HDR Monitor|399.99
+2058|Wireless Gaming Mouse (High DPI)|59.99
+2059|Mechanical Keyboard TKL (Hot-Swap)|99.99
+2060|Ergonomic Office Keyboard|69.99
+2061|USB-C Docking Station (Dual Display)|119.99
+2062|WiFi 7 Router Tri-Band|249.99
+2063|Capture Card 4K60 HDMI|159.99
+2064|Streaming Microphone USB Condenser|89.99
+2065|External GPU Enclosure Thunderbolt 4|299.99

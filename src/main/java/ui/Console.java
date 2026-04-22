@@ -1,4 +1,4 @@
-package com.pluralsight.ui;
+package ui;
 
 import java.util.Scanner;
 
@@ -28,14 +28,21 @@ public class Console {
     }
 
 
-    public static int askForInt(String prompt) {
+    public static int askForInt(String prompt, int min, int max) {
 
         while(true) {
             try {
                 System.out.print(prompt);
                 int result = scanner.nextInt();
-                scanner.nextLine();
-                return result;
+
+                if(result >= min && result <= max){
+                    scanner.nextLine();
+                    return result;
+                } else {
+                    scanner.nextLine();
+                    System.out.printf("Your input was invalid. Please enter a number between %d and %d \n", min, max);
+                }
+
             } catch (Exception e){
                 System.out.printf("This must be a Integer value.\n");
                 scanner.nextLine();
