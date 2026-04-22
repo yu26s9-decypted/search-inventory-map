@@ -12,7 +12,7 @@ import java.util.HashMap;
 
 public class Main {
     public static void main(String[] arg) {
-        HashMap<Integer, Product> product = dataFileManager(); // This method loads all of our product from our data product.txt into the hashmap
+        HashMap<Integer, Product> product = loadInventory(); // This method loads all of our product from our data product.txt into the hashmap
 
 
         if (product == null) {
@@ -119,14 +119,14 @@ public class Main {
 
         Product addNewProduct = new Product(addNewProductId, addNewProductName, addNewProductPrice);
         product.put(addNewProductId, addNewProduct);
-        dataFileWriter(product);
+        writeToProductInventory(product);
         System.out.printf("Product inventory has been updated with: %d %s $%.2f \n", addNewProductId, addNewProductName, addNewProductPrice);
 
 
 
     }
 
-    public static HashMap<Integer, Product> dataFileManager() {
+    public static HashMap<Integer, Product> loadInventory() {
         HashMap<Integer, Product> product = new HashMap<>();
         try {
             String fileName = "src/main/java/com/pluralsight/data/product.txt";
@@ -149,14 +149,14 @@ public class Main {
             }
 
         } catch (IOException e) {
-            System.out.println("Something went wrong with trying read the file. Please check to make sure the location is correct.");
+            System.out.println("Something went wrong with trying read the file. Please check to make sure the location is correct." + e.getMessage() + ": " + e.getCause());
             return null;
         }
         return product;
     }
 
 
-    public static void dataFileWriter(HashMap<Integer, Product> product) {
+    public static void writeToProductInventory(HashMap<Integer, Product> product) {
         try {
             String fileName = "src/main/java/com/pluralsight/data/product.txt";
             FileWriter fileWriter = new FileWriter(fileName, true);
